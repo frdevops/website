@@ -1,0 +1,18 @@
+.footer__logo {
+    height: 100px;
+}
+.rainbondtext {
+    font-size: 30px;
+    position: relative;
+    top: -30px;
+    left: -15px;
+}
+.slogan {
+    margin: 30px 30px 30px 0px;
+}
+.footer__github {
+    align-self: flex-start;
+}
+.footerBottom {
+    height: 100px;
+}
