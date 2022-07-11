@@ -19,14 +19,6 @@ const config = {
   organizationName: 'DevOpsFR', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
-
   presets: [
     [
       'classic',
@@ -70,7 +62,7 @@ const config = {
             position: 'right',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'right'},
+          {to: '/', label: 'Blog', position: 'right'},
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -112,7 +104,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: '/',
               },
               {
                 label: 'GitHub',
