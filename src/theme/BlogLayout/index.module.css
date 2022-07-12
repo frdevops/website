@@ -8,3 +8,14 @@
     max-width: 100%;
   }
 }
+
+@media (min-width: 1440px) {
+  .tagsHero {
+    max-width: 1640px;
+  }
+}
+@media (min-width: 1440px) {
+  .blogContext {
+    max-width: 90%;
+  }
+}

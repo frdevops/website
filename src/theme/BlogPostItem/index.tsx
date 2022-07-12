@@ -69,14 +69,14 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
 
   const local_url = useLocation().pathname;
-  if ( local_url == "/"){
+  if ( local_url == "/" || local_url.includes("/tags")){
     return (
       <article
         className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}
         itemProp="blogPost"
         itemScope
         itemType="http://schema.org/BlogPosting">
-        <div className={clsx(styles.card, "card")}>
+        <div className={clsx(styles.card, "card item shadow--tl")}>
           <div className="row">
             <div className="col">
               <TitleHeading className={styles.blogPostTitle} itemProp="headline">
@@ -96,9 +96,11 @@ export default function BlogPostItem(props: Props): JSX.Element {
                 {typeof readingTime !== 'undefined' && (
                   <>
                     {' · '}
-                    {readingTimePlural(readingTime)}
+                    {/* {readingTimePlural(readingTime)} */}
+                    {Math.ceil(readingTime)} min read
                   </>
                 )}
+                <TagsListInline tags={tags} />
               </div>
               <BlogPostAuthors authors={authors} assets={assets} />
             </div>

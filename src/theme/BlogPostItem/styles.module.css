@@ -26,8 +26,11 @@
   flex-direction: column;
 }
 .card {
-  background-color: #F0F1F5;
+  background-color: #FFFFFF;
   padding: 20px;
+}
+[data-theme="dark"] .card {
+  background-color: #1F1F1F;
 }
 .colContent {
   margin-left: 20px;

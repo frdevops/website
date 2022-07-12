@@ -24,6 +24,7 @@ import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 import { useLocation } from '@docusaurus/router';
 import Layout from '@theme/Layout';
+import Typist from 'react-typist';
 
 function BlogListPageMetadata(props: Props): JSX.Element {
   const {metadata} = props;
@@ -61,54 +62,52 @@ function BlogListPageContent(props: Props): JSX.Element {
       </BlogLayout>
     );
   }
-  return (
-    <BlogLayout sidebar={sidebar}>
-      {items.map(({content: BlogPostContent}) => (
-        <BlogPostItem
-          key={BlogPostContent.metadata.permalink}
-          frontMatter={BlogPostContent.frontMatter}
-          assets={BlogPostContent.assets}
-          metadata={BlogPostContent.metadata}
-          truncated={BlogPostContent.metadata.truncated}>
-          <BlogPostContent />
-        </BlogPostItem>
-      ))}
-      <BlogListPaginator metadata={metadata} />
-    </BlogLayout>
-  );
+  // return (
+  //   <BlogLayout sidebar={sidebar}>
+  //     {items.map(({content: BlogPostContent}) => (
+  //       <BlogPostItem
+  //         key={BlogPostContent.metadata.permalink}
+  //         frontMatter={BlogPostContent.frontMatter}
+  //         assets={BlogPostContent.assets}
+  //         metadata={BlogPostContent.metadata}
+  //         truncated={BlogPostContent.metadata.truncated}>
+  //         <BlogPostContent />
+  //       </BlogPostItem>
+  //     ))}
+  //     <BlogListPaginator metadata={metadata} />
+  //   </BlogLayout>
+  // );
 }
 
 export default function BlogListPage(props: Props): JSX.Element {
   const local_url = useLocation().pathname;
-  const {siteConfig} = useDocusaurusContext();
   if ( local_url == "/"){
   return (
     <Layout>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/intro">
-              Docusaurus Tutorial - 5min ⏱️
-            </Link>
-          </div>
+          <Typist avgTypingDelay={200}>
+            <h1 className="hero__title">
+              <span>DevOps 故居</span>
+            </h1>
+            <span className="hero__subtitle">
+              专注于云原生领域,分享技术干货
+            </span>
+          </Typist>
         </div>
       </header>
       <BlogListPageContent {...props} />
     </Layout>
   );
   }
-  return (
-    <HtmlClassNameProvider
-      className={clsx(
-        ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogListPage,
-      )}>
-      <BlogListPageMetadata {...props} />
-      <BlogListPageContent {...props} />
-    </HtmlClassNameProvider>
-  );
+  // return (
+  //   <HtmlClassNameProvider
+  //     className={clsx(
+  //       ThemeClassNames.wrapper.blogPages,
+  //       ThemeClassNames.page.blogListPage,
+  //     )}>
+  //     <BlogListPageMetadata {...props} />
+  //     <BlogListPageContent {...props} />
+  //   </HtmlClassNameProvider>
+  // );
 }

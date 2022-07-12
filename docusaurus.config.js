@@ -26,18 +26,11 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           routeBasePath: '/',
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          blogSidebarTitle: '近期文章',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -56,17 +49,38 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          
+          {
+            to: '/tags', 
+            label: '标签', 
+            position: 'right'
+          },
+          {
+            type: 'dropdown',
+            label: '分类',
+            position: 'right',
+            items: [
+              {
+                label: 'Kubernetes',
+                to: '/tags/facebook'
+              },
+              {
+                label: 'Docusaurus',
+                to: '/tags/docusaurus'
+              },
+            ],
+          },
           {
             type: 'doc',
             docId: 'intro',
             position: 'right',
-            label: 'Tutorial',
+            label: '教程',
           },
-          {to: '/', label: 'Blog', position: 'right'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/frdevops',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository'
           },
         ],
       },
@@ -103,12 +117,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/frdevops',
               },
             ],
           },
